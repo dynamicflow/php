@@ -12,6 +12,10 @@ RUN apt-get update && \
                        php-mysql \
                        php-redis \
                        apache2 \
-                       libapache2-mod-php
-RUN rm -rf /var/lib/apt/* && rm -rf /var/cache/apt/*
+                       libapache2-mod-php && \
+    rm -rf /var/lib/apt/* && \
+    rm -rf /var/cache/apt/* && \
+    rm /etc/apache2/sites-enabled/* && \
+    rm -rf /var/www/html && \
+    a2enmod rewrite
 RUN curl -sS https://getcomposer.org/installer | php -- args --install-dir=/usr/local/bin --filename composer
