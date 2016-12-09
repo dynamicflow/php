@@ -17,7 +17,8 @@ RUN apt-get update && \
     rm -rf /var/cache/apt/* && \
     rm /etc/apache2/sites-enabled/* && \
     rm -rf /var/www/html && \
-    a2enmod rewrite
+    a2enmod rewrite && \
+    a2enmod ssl
 RUN curl -sS https://getcomposer.org/installer | php -- args --install-dir=/usr/local/bin --filename composer
 
 ENV APACHE_PID_FILE /var/run/apache2/apache2.pid
