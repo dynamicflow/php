@@ -1,5 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER Alessandro Oliveira <alessandro@dynamicflow.com.br>
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y curl \
@@ -18,7 +19,9 @@ RUN apt-get update && \
     rm /etc/apache2/sites-enabled/* && \
     rm -rf /var/www/html && \
     a2enmod rewrite && \
-    a2enmod ssl
+    a2enmod ssl && \
+    a2enmod headers
+
 RUN curl -sS https://getcomposer.org/installer | php -- args --install-dir=/usr/local/bin --filename composer
 
 ENV APACHE_PID_FILE /var/run/apache/apache.pid
@@ -28,5 +31,6 @@ ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache
 
 EXPOSE 80
+EXPOSE 443
 
 CMD ["/usr/sbin/apache2","-k","start","-DFOREGROUND"]
