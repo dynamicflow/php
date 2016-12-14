@@ -12,6 +12,7 @@ RUN apt-get update && \
                        php-xml \
                        php-mysql \
                        php-redis \
+                       php7.0-zip \
                        apache2 \
                        libapache2-mod-php && \
     rm -rf /var/lib/apt/* && \
