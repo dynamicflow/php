@@ -34,5 +34,3 @@ ENV APACHE_LOCK_DIR=/var/lock/apache2
 
 EXPOSE 80
 EXPOSE 443
-
-CMD ["/usr/sbin/apache2","-k","start","-DFOREGROUND"]
