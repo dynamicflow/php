@@ -12,6 +12,7 @@ RUN apt-get update && \
                        php-xml \
                        php-mysql \
                        php-redis \
+                       php-curl \
                        php7.0-zip \
                        apache2 \
                        libapache2-mod-php && \
@@ -31,6 +32,3 @@ ENV APACHE_LOG_DIR=/var/log/apache2
 ENV APACHE_RUN_GROUP=www-data
 ENV APACHE_RUN_DIR=/var/run/apache2
 ENV APACHE_LOCK_DIR=/var/lock/apache2
-
-EXPOSE 80
-EXPOSE 443
